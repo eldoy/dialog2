@@ -1,0 +1,79 @@
+dialog {
+  position: absolute;
+  left: 0; right: 0;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  border: none;
+  margin: auto;
+  border: 1px solid #dfdfdf;
+}
+
+dialog[open] {
+  animation: toggle-modal .1s ease-in-out;
+}
+
+@keyframes toggle-modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+dialog + .backdrop, dialog::backdrop {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.85);
+}
+
+._dialog_overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+dialog.fixed {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+#dialog-layout2 {
+  .dialog {
+    width: 100%;
+    text-align: left;
+    background-color: #fff;
+    @media (max-width: 800px) {
+      padding: 10px;
+      border: none;
+      box-shadow: none;
+    }
+    @media (max-width: 600px) {
+      padding: 0;
+    }
+    h1:first-of-type {
+      margin: 0;
+      padding: 10px 0;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media (max-width: 600px) {
+        font-size: 28px;
+      }
+    }
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      border-bottom: solid 1px #dfdfdf;
+      background-color: #fff;
+      margin-bottom: 24px;
+      white-space: nowrap;
+    }
+  }
+}
